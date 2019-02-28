@@ -99,11 +99,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
   cursor: pointer;
 }
 </style>
-
-
-  
-  
 </head>
+
 <body>
 
 <iframe width="640" height="360" src="https://www.youtube.com/embed/7WICiDZD-tI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -139,12 +136,12 @@ body {font-family: Arial, Helvetica, sans-serif;}
     </form>
 </div>
 
-<h2> comment </h2>
- <form action="Login.html" method="post">
-<textarea cols="50" rows="4" name="Comment"></textarea>
-<!-- <input type=submit value="submit"> -->
 
-<button id="myBtn">Submit</button>
+
+<h2> comment </h2>
+
+ <form action="Registration.html" method="post">
+<button onclick="myFunction()" id="myBtn">Click here to Comment</button>
 <div id="myModal" class="modal">
 
   <div class="modal-content">
@@ -181,12 +178,14 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
+
+function myFunction() {
+	  alert("You need to login first!");
+	}
+
+
 </script>
-
-
-
-
-
 
 </body>
 </html>

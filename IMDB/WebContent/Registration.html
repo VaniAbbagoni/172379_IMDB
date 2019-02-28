@@ -7,7 +7,7 @@
 * {box-sizing: border-box}
 
 /* Full-width input fields */
-  input[type=text], input[type=password] {
+  input[type=text], input[type=password], input[type=confirmPassword] {
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
@@ -16,7 +16,7 @@
   background: #f1f1f1;
 }
 
-input[type=text]:focus, input[type=password]:focus {
+input[type=text]:focus, input[type=password]:focus input[type=confirmPassword]:focus {
   background-color: #ddd;
   outline: none;
 }
@@ -74,11 +74,13 @@ button:hover {
 }
 </style>
 
+
+
 </head>
 
 
 <body>
-<h2>Registration form Form</h2>
+<h2>Registration Form</h2>
 
 <form action="RegServlet" method="post">
   
@@ -87,14 +89,19 @@ button:hover {
     <input type="text" placeholder="Enter Username" name="uname"  required>
 
     <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw"  required>
+    <input type="password" placeholder="Enter password" name="password"  required>
     
+    <label for="confirmpsw"><b>Confirm Password</b></label>
+     <input type="password" placeholder="Confirm your Password" name="confirmpsw"   required>
+    
+   
     <label>
       <input type="checkbox" checked="checked" name="remember"> Remember me
     </label>
     
         
-    <input type="submit" value="Register">
+    <input type="submit" value="Register" >
+    <p23> Already a member? <a href="Login.html"> Click to login </a> </p23>
     
   </div>
   
@@ -102,5 +109,67 @@ button:hover {
 
 
 
+
+
+
+
+
+
+
+
+<!-- CONFIRM PASSWORD VALIDATION 
+
+<script>
+function check_pass() {
+    if (document.getElementById('password').value ==
+            document.getElementById('confirmpsw').value) {
+        document.getElementById('submit').disabled = false;
+    } else {
+        document.getElementById('submit').disabled = true;
+    }
+}
+</script>
+-->
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
+<input id="pass1" type="password" placeholder="Password" style="border-radius:7px; border:2px solid #dadada;" /> <br />
+<input id="pass2" type="password" placeholder="Confirm Password" style="border-radius:7px; border:2px solid #dadada;"/> <br />
+
+<script>
+    function myFunction() {
+        var pass1 = document.getElementById("pass1").value;
+        var pass2 = document.getElementById("pass2").value;
+        if (pass1 != pass2) {
+            //alert("Passwords Do not match");
+            document.getElementById("pass1").style.borderColor = "#E34234";
+            document.getElementById("pass2").style.borderColor = "#E34234";
+        }
+        else {
+            alert("Passwords Match!!!");
+        }
+    }
+</script>
+
+<button type="button" onclick="myFunction()">Sumbit</button>
+
+-->
+
+
+
+
+
 </body>
+
+
 </html>

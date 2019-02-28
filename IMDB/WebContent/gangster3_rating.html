@@ -155,12 +155,12 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 
 
-<h2> comment </h2>
- <form action="Login.html" method="post">
-<textarea cols="50" rows="4" name="Comment"></textarea>
-<!-- <input type=submit value="submit"> -->
 
-<button id="myBtn">Submit</button>
+
+<h2> comment </h2>
+
+ <form action="Registration.html" method="post">
+<button onclick="myFunction()" id="myBtn">Click here to Comment</button>
 <div id="myModal" class="modal">
 
   <div class="modal-content">
@@ -197,6 +197,13 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
+
+function myFunction() {
+	  alert("You need to login first!");
+	}
+
+
 </script>
 
 

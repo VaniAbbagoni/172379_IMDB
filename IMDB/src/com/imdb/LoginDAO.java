@@ -6,22 +6,25 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class LoginDAO {
-	public static boolean validate(String uname,String psw){  
+	public static boolean validate(String uname,String password){  
 		boolean status=false;  
 		try{  
 		Class.forName("oracle.jdbc.driver.OracleDriver");  
 		Connection con=DriverManager.getConnection(  
 		"jdbc:oracle:thin:@localhost:1521:xe","system","orcl11g");  
-		}
+	
 		PreparedStatement ps=con.prepareStatement(  
-		"insert into users values(?,?)");  
+		"insert into user1 values(?,?)");  
 		ps.setString(1,uname);  
-		ps.setString(2,psw);  
+		ps.setString(2,password); 
+		
 		      
 		ResultSet rs=ps.executeQuery();  
 		status=rs.next();  
 		          
-		}catch(Exception e){System.out.println(e);}  
+		}catch(Exception e)
+		{System.out.println(e);}  
 		return status;  
-		}  
+		} 
+	
 		}  

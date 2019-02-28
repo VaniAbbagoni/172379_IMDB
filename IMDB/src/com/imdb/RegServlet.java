@@ -4,56 +4,40 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-
 /**
- * Servlet implementation class RegistrationServlet
+ * Servlet implementation class LoginServlet
  */
-@WebServlet(description = "to insert data", urlPatterns = { "/RegServlet" })
+@WebServlet("/RegServlet")
 public class RegServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-   
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
-	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
-		
-		   String uname=request.getParameter("uname");
-		   String psw=request.getParameter("psw"); 
-		 
-          
-		 RegistrationDAO u=new RegistrationDAO();
-		
-		//int i=0;
-	try {
-		u.register(uname, psw);
-	} catch (SQLException e1) {
-		// TODO Auto-generated catch block
-		e1.printStackTrace();
-	}
-//		 if(i==1)
-//		 {
-//			 response.sendRedirect("login.html");
-//		 }
-//		 else
-//		 {
-//			 response.sendRedirect("Registration.html");
-//		 }
-	response.sendRedirect("succ.html");
+		response.setContentType("text/html");  
+	    PrintWriter out = response.getWriter();  
+	    String n=request.getParameter("uname");  
+	    String p=request.getParameter("password"); 
+	    //String cp=request.getParameter("confirmpsw"); 
+	    try {
+			if(RegistrationDAO.register(n, p)){  
+			    RequestDispatcher rd=request.getRequestDispatcher("Login.html");  
+			    rd.forward(request,response);  
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}  
+	       
+	    out.close();  
 	}
 
 }
+
+
+

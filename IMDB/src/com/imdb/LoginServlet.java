@@ -23,12 +23,15 @@ public class LoginServlet extends HttpServlet {
 	    String n=request.getParameter("uname");  
 	    String p=request.getParameter("psw");  
 	    if(LoginDAO.validate(n, p)){  
-	        RequestDispatcher rd=request.getRequestDispatcher("96_rating.html");  
-	        rd.forward(request,response);  
+	        RequestDispatcher rd=request.getRequestDispatcher("index.html");  
+	        rd.forward(request,response); 
+	        
+	        
+	        
 	    }  
 	    else{  
 	        
-	        RequestDispatcher rd=request.getRequestDispatcher("succ.html");  
+	        RequestDispatcher rd=request.getRequestDispatcher("Registration.html");  
 	        rd.forward(request,response);  
 	    }  
 	          
