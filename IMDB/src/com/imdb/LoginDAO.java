@@ -17,7 +17,7 @@ public class LoginDAO {
 		"select uname, password from user1");  
 		
 		ResultSet rs=ps.executeQuery();  
-		
+		System.out.println("jhfdbb");
 		while(rs.next()){
 		String	uname1 = rs.getString("uname");
            String  password1 = rs.getString("password");
