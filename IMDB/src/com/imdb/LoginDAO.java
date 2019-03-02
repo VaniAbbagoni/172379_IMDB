@@ -14,17 +14,29 @@ public class LoginDAO {
 		"jdbc:oracle:thin:@localhost:1521:xe","system","orcl11g");  
 	
 		PreparedStatement ps=con.prepareStatement(  
-		"insert into user1 values(?,?)");  
-		ps.setString(1,uname);  
-		ps.setString(2,password); 
+		"select uname, password from user1");  
 		
-		      
 		ResultSet rs=ps.executeQuery();  
-		status=rs.next();  
+		
+		while(rs.next()){
+		String	uname1 = rs.getString("uname");
+           String  password1 = rs.getString("password");
+
+            if(uname.equals(uname1) && password.equals(password1))
+            		{
+               
+                status = true;
+            }
+           
+        }
+		
 		          
 		}catch(Exception e)
 		{System.out.println(e);}  
 		return status;  
 		} 
+
 	
-		}  
+	}  
+
+
